@@ -69,7 +69,7 @@
 					title : 'Ricerca polizza',
 					active : true,
 					template : 'polizza-list',
-					bancari : data
+					polizze : data
 				});
 			});
 		};
@@ -160,6 +160,7 @@
 
 		$scope.removeCliente = function() {
 			$scope.cliente = null;
+			$scope.attivita.polizza = null;
 			$scope.removeTabById('dettaglioCliente');
 		}
 		$scope.removePolizza = function() {
@@ -304,7 +305,7 @@
 									<legend>Polizza</legend>
 									<input type="text" placeholder="numero" ng-model="numeroPolizza">
 									<input type="text" placeholder="targa" ng-model="targa">
-									<button class="btn btn-info " type="button"
+									<button class="btn btn-info " type="submit"
 										ng-click="doSearchPolizza()" ng-show="numeroPolizza || targa">CERCA</button>
 								</fieldset>
 							</form>

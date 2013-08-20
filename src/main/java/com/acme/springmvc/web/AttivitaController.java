@@ -72,9 +72,22 @@ public class AttivitaController {
 		return new Gson().toJson(bancarioRepository.search(nomeCognome));
 	}
 
+	@RequestMapping(value = "/attivita/searchPolizza")
+	@ResponseBody
+	public String searchBancario(String numeroPolizza, String targa) {
+		sleep(5);
+		return new Gson()
+				.toJson(polizzaRepository.search(numeroPolizza, targa));
+	}
+
 	@RequestMapping(value = "/attivita/bancario-list")
 	public String bancarioList() {
 		return "fragments/bancarioList";
+	}
+
+	@RequestMapping(value = "/attivita/polizza-list")
+	public String polizzaList() {
+		return "fragments/polizzaList";
 	}
 
 	@RequestMapping(value = "/attivita/searchCliente")

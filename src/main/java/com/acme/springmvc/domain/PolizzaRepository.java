@@ -47,4 +47,19 @@ public class PolizzaRepository {
 		}
 		return result;
 	}
+
+	public List<Polizza> search(String numeroPolizza, String targa) {
+		List<Polizza> polizze = new ArrayList<Polizza>();
+		for (int i = 0; i < 10; i++) {
+			Polizza polizza = new Polizza();
+			polizza.setId(new Long(i));
+			polizza.setDecorrenza(DateTime.now().minusMonths(i).toDate());
+			polizza.setNumero(i + "" + i + "" + i);
+			polizza.setProdotto("Prodotto " + i);
+			polizza.setElencoAttivita(elencoAttivita());
+			polizza.setPratiche(pratiche());
+			polizze.add(polizza);
+		}
+		return polizze;
+	}
 }
