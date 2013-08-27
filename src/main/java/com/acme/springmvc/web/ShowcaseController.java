@@ -11,6 +11,11 @@ public class ShowcaseController {
 		return "showcase/index";
 	}
 
+	@RequestMapping("/showcase/index2")
+	public String index2() {
+		return "showcase/index2";
+	}
+
 	@RequestMapping("/showcase/template-view")
 	public String templateView() {
 		return "showcase/templates/view";
