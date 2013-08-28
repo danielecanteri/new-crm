@@ -117,7 +117,7 @@
 							title : 'Dettaglio cliente ' + $scope.cliente.nome
 									+ ' ' + $scope.cliente.cognome,
 							active : true,
-							template : 'cliente-view',
+							template : '../pages/cliente-view',
 						});
 					});
 		}
@@ -303,8 +303,9 @@
 							<form ng-submit="doSearchPolizza()" class="form-search">
 								<fieldset>
 									<legend>Polizza</legend>
-									<input type="text" placeholder="numero" ng-model="numeroPolizza">
-									<input type="text" placeholder="targa" ng-model="targa">
+									<input type="text" placeholder="numero"
+										ng-model="numeroPolizza"> <input type="text"
+										placeholder="targa" ng-model="targa">
 									<button class="btn btn-info " type="submit"
 										ng-click="doSearchPolizza()" ng-show="numeroPolizza || targa">CERCA</button>
 								</fieldset>

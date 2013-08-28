@@ -13,6 +13,7 @@ public class AttivitaRepository {
 		List<Attivita> result = new ArrayList<Attivita>();
 		for (int i = 0; i < 10; i++) {
 			Attivita attivita = new Attivita();
+			attivita.setId(new Long(i));
 			attivita.setDescrizione("descrizione " + i);
 			attivita.setCreata(new Date());
 			attivita.setStato("new");

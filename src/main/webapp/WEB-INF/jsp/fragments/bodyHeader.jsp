@@ -9,13 +9,35 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			
+
 			<a class="brand" href="<spring:url value="/"/>">Home</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li class="active"><a href="<spring:url value="/attivita/new"/>">New</a></li>
+					<li class="active"><a
+						href="<spring:url value="/attivita/new"/>">New</a></li>
 					<li><a href="<spring:url value="/attivita/mylist"/>">Mie</a></li>
 					<li><a href="#contact">Contact</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" />Gestione Attivit&agrave; <b
+						class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<spring:url value="/pages/gestione-attivita"/>">Versione
+									1</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita2"/>">Versione
+									2</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita3"/>">Versione
+									3</a></li>
+						</ul></li>
+					</li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" />Gestione Pratiche<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<spring:url value="/pages/gestione-pratiche"/>">Versione
+									1</a></li>
+						</ul></li>
+					</li>
 					<li><a href="<spring:url value="/showcase/index"/>">Showcase</a></li>
 				</ul>
 			</div>

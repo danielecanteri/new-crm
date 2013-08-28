@@ -40,7 +40,8 @@
 }
 
 .outable {
-	transition: left 0.4s;
+	position: relative;
+	transition: left 0.6s;
 }
 
 .outable.out {

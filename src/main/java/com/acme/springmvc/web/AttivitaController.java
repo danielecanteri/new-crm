@@ -59,6 +59,16 @@ public class AttivitaController {
 		return new Gson().toJson(attivitaRepository.list());
 	}
 
+	@RequestMapping(value = "/attivita/my-recenti")
+	@ResponseBody
+	public String myRecenti() {
+		List<Attivita> list = attivitaRepository.list();
+		for (Attivita attivita : list) {
+			attivita.setStato("chiusa");
+		}
+		return new Gson().toJson(list);
+	}
+
 	@RequestMapping(value = "/attivita/new", method = RequestMethod.GET)
 	public ModelAndView newAttivita() {
 		ModelAndView modelAndView = new ModelAndView("attivita/attivitaNew");
@@ -100,11 +110,6 @@ public class AttivitaController {
 	@RequestMapping(value = "/attivita/cliente-list")
 	public String clienteList() {
 		return "fragments/clienteList";
-	}
-
-	@RequestMapping(value = "/attivita/cliente-view")
-	public String clienteView() {
-		return "fragments/clienteView";
 	}
 
 	@RequestMapping(value = "/attivita/bancario-new")
