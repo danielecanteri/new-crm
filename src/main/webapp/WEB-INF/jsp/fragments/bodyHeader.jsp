@@ -38,6 +38,13 @@
 									1</a></li>
 						</ul></li>
 					</li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" />Gestione Fax<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<spring:url value="/pages/gestione-fax"/>">Versione
+									1</a></li>
+						</ul></li>
+					</li>
 					<li><a href="<spring:url value="/showcase/index"/>">Showcase</a></li>
 				</ul>
 			</div>

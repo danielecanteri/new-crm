@@ -9,8 +9,8 @@
 <jsp:include page="../fragments/headTag.jsp" />
 <script type="text/javascript">
 	function PageController($scope, $http) {
-		$scope.attivita = {};
-		$scope.attivitaSelected = null;
+		$scope.fax = {};
+		$scope.faxSelected = null;
 
 		$scope.cliente = {
 			nome : 'Mario',
@@ -32,15 +32,15 @@
 			active : false
 		} ];
 
-		$scope.mieAttivita = function() {
-			$http.get('../attivita/mylistasjson').success(function(data) {
-				$scope.attivita = data;
+		$scope.mieiFax = function() {
+			$http.get('../fax/my').success(function(data) {
+				$scope.fax = data;
 			});
 		};
 
-		$scope.recentiAttivita = function() {
-			$http.get('../attivita/my-recenti').success(function(data) {
-				$scope.attivita = data;
+		$scope.recentiFax = function() {
+			$http.get('../fax/my-recenti').success(function(data) {
+				$scope.fax = data;
 			});
 		};
 
@@ -55,8 +55,8 @@
 			$scope.menu[idx].active = true;
 		}
 
-		$scope.selectAttivita = function(attivita) {
-			$scope.attivitaSelected = attivita;
+		$scope.selectFax = function(fax) {
+			$scope.faxSelected = fax;
 		}
 
 	}
@@ -80,7 +80,7 @@
 <body ng-controller="PageController">
 	<jsp:include page="../fragments/bodyHeader.jsp" />
 	<div class="container-fluid toggable"
-		ng-class="{left: attivitaSelected != null}">
+		ng-class="{left: faxSelected != null}">
 		<div class="row-fluid">
 			<div class="span4">
 				<h2>
@@ -89,10 +89,10 @@
 				</h2>
 				<ul class="nav nav-tabs nav-stacked">
 					<li ng-class="{active : menu[0].active}"><a
-						ng-click="selectMenu(0);mieAttivita()">Mie<span
+						ng-click="selectMenu(0);mieiFax()">Miei<span
 							class="badge pull-right">10</span></a></li>
 					<li ng-class="{active : menu[1].active}"><a
-						ng-click="selectMenu(1);recentiAttivita()">Recenti</a></li>
+						ng-click="selectMenu(1);recentiFax()">Recenti</a></li>
 					<li ng-class="{active : menu[2].active}"><a
 						ng-click="selectMenu(2);tutteAttivita()">Tutte</a>
 						<div class="well" ng-show="menu[2].active == true">
@@ -112,39 +112,38 @@
 			</div>
 			<div class="span8">
 				<table class="table table-striped table-bordered table-hover"
-					ng-show="attivita.length > 0">
+					ng-show="fax.length > 0">
 					<thead>
 						<tr>
-							<th>Descrizione</th>
+							<th>Id</th>
 							<th>Creata</th>
 							<th>Stato</th>
 							<th></th>
 						</tr>
 					</thead>
-					<tr ng-repeat="attivita in attivita">
-						<td>{{attivita.descrizione}}</td>
+					<tr ng-repeat="fax in fax">
+						<td>{{fax.id}}</td>
 						<td>{{attivita.creata}}</td>
 						<td>{{attivita.stato}}</td>
 						<td><button class="btn btn-success btn-small" type="button"
-								ng-click="selectAttivita(attivita)">SELEZIONA</button></td>
+								ng-click="selectFax(fax)">SELEZIONA</button></td>
 					</tr>
 				</table>
 			</div>
 		</div>
 	</div>
 	<div class="container-fluid toggable"
-		ng-class="{right: attivitaSelected == null}">
-		<button class="btn" type="submit" ng-click="attivitaSelected = null">INDIETRO</button>
+		ng-class="{right: faxSelected == null}">
+		<button class="btn" type="submit" ng-click="faxSelected = null">INDIETRO</button>
 		<div class="row-fluid">
 			<div class="span5">
 				<div ng-include="'attivita-edit'"></div>
 			</div>
 			<div class="span7">
 				<ul class="nav nav-tabs">
-					<li class="active"><a href="#">Cliente</a></li>
-					<li><a href="#">Polizza</a></li>
+					<li class="active"><a href="#">Fax</a></li>
 				</ul>
-				<div ng-include="'cliente-view'"></div>
+				<div ng-include="'fax-view'"></div>
 			</div>
 		</div>
 	</div>
