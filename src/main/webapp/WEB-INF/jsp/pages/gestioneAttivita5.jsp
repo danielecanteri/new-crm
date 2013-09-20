@@ -115,22 +115,48 @@
 					ng-show="attivita.length > 0">
 					<thead>
 						<tr>
-							<th>Descrizione</th>
-							<th>Commenti</th>
-							<th>Creata</th>
-							<th>Aggiornata</th>
-							<th>Stato</th>
-							<th></th>
+							<th>Attivita</th>
 						</tr>
 					</thead>
 					<tr ng-repeat="attivita in attivita">
-						<td>{{attivita.descrizione}}</td>
-						<td>ajsdfk ah dskjfh alds adf</td>
-						<td>{{attivita.creata}}</td>
-						<td>{{attivita.creata}}</td>
-						<td>{{attivita.stato}}</td>
-						<td><button class="btn btn-success btn-small" type="button"
-								ng-click="selectAttivita(attivita)">SELEZIONA</button></td>
+						<td>
+							<div class="container-fluid toggable">
+								<div class="row-fluid">
+									<div class="span4">
+										<span style="font-weight: bold">Attività:</span>
+										{{attivita.descrizione}}
+									</div>
+									<div class="span4">
+										<span style="font-weight: bold">Stato:</span>
+										{{attivita.stato}}
+									</div>
+									<div class="span4">
+										<button class="btn btn-success btn-small" type="button"
+											ng-click="selectAttivita(attivita)">SELEZIONA</button>
+									</div>
+								</div>
+								<div class="row-fluid">
+									<div class="span4">
+										<span style="font-weight: bold">Creata:</span>
+										{{attivita.creata}}
+									</div>
+									<div class="span4">
+										<span style="font-weight: bold">Aggiornata:</span>
+										{{attivita.creata}}
+									</div>
+									<div class="span4"></div>
+								</div>
+							</div>
+							<div class="container-fluid toggable">
+								<div class="row-fluid">
+									<div class="span12">
+										<span style="font-weight: bold">Commenti:</span> jkah
+										dskjaksdf ah sdjkh kjhsd kah fdkjh askdfh kasd f
+									</div>
+								</div>
+							</div>
+						</td>
+
 					</tr>
 				</table>
 			</div>

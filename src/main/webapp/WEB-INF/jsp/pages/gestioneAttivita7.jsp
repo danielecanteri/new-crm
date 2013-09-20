@@ -15,6 +15,7 @@
 		$scope.cliente = {
 			nome : 'Mario',
 			cognome : 'Rossi',
+			codiceFiscale : 'MRSRCM74M48L781U',
 			polizze : [ {
 				numero : 12345,
 				prodotto : 'SOLO UNA'
@@ -23,6 +24,19 @@
 				prodotto : 'TUTTO TONDO'
 			} ]
 		};
+
+		$scope.bancario = {
+			nome : 'Alessandro',
+			cognome : 'Avesani',
+			banca : 'Banca Popolare Emilia Romagna',
+			filiale : 'Verona Centro',
+			codiceFiliale : '01100'
+		}
+
+		$scope.polizza = {
+			numero : '755489558123',
+			prodotto : '626 Tutto tondo'
+		}
 
 		$scope.menu = [ {
 			active : false
@@ -59,6 +73,28 @@
 			$scope.attivitaSelected = attivita;
 		}
 
+		$scope.sxTabs = [ {
+			title : 'Attività',
+			template : 'attivita-edit',
+			active : true
+		} ];
+
+		$scope.nuovaPratica = function() {
+			$scope.sxTabs[0].active = false;
+			$scope.sxTabs.push({
+				title : 'Pratica',
+				template : 'pratica-new',
+				active : true
+			});
+		}
+
+		$scope.selectSxTab = function(tab) {
+			$scope.sxTabs.forEach(function(item) {
+				item.active = false;
+			});
+			tab.active = true;
+		}
+
 	}
 </script>
 <style>
@@ -82,35 +118,38 @@
 	<div class="container-fluid toggable"
 		ng-class="{left: attivitaSelected != null}">
 		<div class="row-fluid">
-			<div class="span3">
-				<h2>
-					Gestione attivit&agrave; <i class="icon-repeat pull-right"
-						style="margin-left: 5px"></i>
-				</h2>
-				<ul class="nav nav-tabs nav-stacked">
-					<li ng-class="{active : menu[0].active}"><a
-						ng-click="selectMenu(0);mieAttivita()">Mie<span
-							class="badge pull-right">10</span></a></li>
-					<li ng-class="{active : menu[1].active}"><a
-						ng-click="selectMenu(1);recentiAttivita()">Recenti</a></li>
-					<li ng-class="{active : menu[2].active}"><a
-						ng-click="selectMenu(2);tutteAttivita()">Tutte</a>
-						<div class="well" ng-show="menu[2].active == true">
-							<form ng-submit="doSearchPolizza()" class="form-search">
-								<fieldset>
-									<legend>Ricerca Avanzata</legend>
-									<input type="text" placeholder="numero"
-										ng-model="numeroPolizza"> <input type="text"
-										placeholder="targa" ng-model="targa"> <br />
-									<button class="btn btn-info " type="submit"
-										ng-click="doSearchPolizza()" ng-show="numeroPolizza || targa">CERCA</button>
-								</fieldset>
-							</form>
-						</div></li>
-				</ul>
+			<div class="span12">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<ul class="nav">
+							<li ng-class="{active : menu[0].active}"><a
+								ng-click="selectMenu(0);mieAttivita()">Mie&nbsp;<span
+									class="badge pull-right">10</span></a></li>
+							<li ng-class="{active : menu[1].active}"><a
+								ng-click="selectMenu(1);recentiAttivita()">Recenti</a></li>
+							<li ng-class="{active : menu[2].active}"><a
+								ng-click="selectMenu(2);tutteAttivita()">Tutte</a>
+								<div class="well" ng-show="menu[2].active == true">
+									<form ng-submit="doSearchPolizza()" class="form-search">
+										<fieldset>
+											<legend>Ricerca Avanzata</legend>
+											<input type="text" placeholder="numero"
+												ng-model="numeroPolizza"> <input type="text"
+												placeholder="targa" ng-model="targa"> <br />
+											<button class="btn btn-info " type="submit"
+												ng-click="doSearchPolizza()"
+												ng-show="numeroPolizza || targa">CERCA</button>
+										</fieldset>
+									</form>
+								</div></li>
+						</ul>
+					</div>
+				</div>
 
 			</div>
-			<div class="span9">
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
 				<table class="table table-striped table-bordered table-hover"
 					ng-show="attivita.length > 0">
 					<thead>
@@ -138,10 +177,18 @@
 	</div>
 	<div class="container-fluid toggable"
 		ng-class="{right: attivitaSelected == null}">
-		<button class="btn" type="submit" ng-click="attivitaSelected = null">INDIETRO</button>
 		<div class="row-fluid">
 			<div class="span5">
-				<div ng-include="'attivita-edit'"></div>
+				<ul class="nav nav-tabs">
+					<li ng-class="{active: tab.active}" ng-repeat="tab in sxTabs"><a
+						href="#" ng-click="selectSxTab(tab)">{{tab.title}}</a></li>
+				</ul>
+				<div class="tab-content">
+					<div ng-repeat="tab in sxTabs" class="tab-pane"
+						ng-class="{active: tab.active}">
+						<div ng-include="tab.template"></div>
+					</div>
+				</div>
 			</div>
 			<div class="span7">
 				<ul class="nav nav-tabs">

@@ -29,6 +29,18 @@
 							<li><a
 								href="<spring:url value="/pages/gestione-attivita3"/>">Versione
 									3</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita4"/>">Versione
+									4</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita5"/>">Versione
+									5</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita6"/>">Versione
+									6</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita7"/>">Versione
+									7</a></li>
 						</ul></li>
 					</li>
 					<li class="dropdown"><a class="dropdown-toggle"
