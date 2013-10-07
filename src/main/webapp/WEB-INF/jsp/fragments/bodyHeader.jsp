@@ -13,8 +13,10 @@
 			<a class="brand" href="<spring:url value="/"/>">Home</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li class="active"><a
+					<li><a
 						href="<spring:url value="/attivita/new"/>">New</a></li>
+					<li><a
+						href="<spring:url value="/pages/new-inbound"/>">Nuova Inbound</a></li>
 					<li><a href="<spring:url value="/attivita/mylist"/>">Mie</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
