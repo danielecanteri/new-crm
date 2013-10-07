@@ -298,11 +298,12 @@
 
 
 					<div class="pull-right">
-						<button class="btn btn-success" ng-click="nuovaPratica(polizza)" ng-show="leftTabs.length < 2">NUOVA
-							PRATICA</button>
-						<button class="btn btn-success" ng-click="nuovoTask(polizza)" ng-show="leftTabs.length < 2">NUOVO
-							TASK</button>
-						<button class="btn btn-success" ng-click="console.log('saving')" ng-show="leftTabs.length > 1">SALVA</button>
+						<button class="btn btn-success" ng-click="nuovaPratica(polizza)"
+							ng-show="leftTabs.length < 2">NUOVA PRATICA</button>
+						<button class="btn btn-success" ng-click="nuovoTask(polizza)"
+							ng-show="leftTabs.length < 2">NUOVA ATTIVITA'</button>
+						<button class="btn btn-success" ng-click="console.log('saving')"
+							ng-show="leftTabs.length > 1">SALVA</button>
 					</div>
 					<div>
 						<i>&nbsp;</i>
