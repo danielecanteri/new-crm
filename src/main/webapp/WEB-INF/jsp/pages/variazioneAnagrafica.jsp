@@ -1,35 +1,56 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <div>
 	<h4>Dettaglio Variazione Anagrafica</h4>
-	<h6>Informazioni</h6>
 	<div class="row-fluid">
-		<div class="span3">Canale banca</div>
-		<div class="span3">
-			<select style="width: 100%">
-				<option></option>
-				<option>X</option>
-				<option>Y</option>
-			</select>
-		</div>
-		<div class="span3">Consenso privacy</div>
-		<div class="span3">
-			<input type="checkbox" style="width: 100%">
+		<div class="span6">
+			<input type="checkbox" class="pull-right"
+				ng-model="modificaResidenzaContraente">
+			<h5>Modifica residenza del contraente</h5>
 		</div>
 	</div>
+	<div ng-include="'<spring:url value="/" />pages/modifica-residenza'"
+		ng-show="modificaResidenzaContraente"></div>
+
 	<div class="row-fluid">
-		<div class="span3">
-			<label>Contraente = Assicurato</label>
-		</div>
-		<div class="span3">
-			<input type="checkbox" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Residenza = Domicilio</label>
-		</div>
-		<div class="span3">
-			<input type="checkbox" style="width: 100%">
+		<div class="span6">
+			<input type="checkbox" class="pull-right"
+				ng-model="modificaRecapitiContraente">
+			<h5>Modifica recapiti del contraente</h5>
 		</div>
 	</div>
-	<h6>Documenti da richiedere</h6>
+	<div ng-include="'<spring:url value="/" />pages/modifica-recapiti'"
+		ng-show="modificaRecapitiContraente"></div>
+
+	<div class="row-fluid">
+		<div class="span6">
+			<input type="checkbox" class="pull-right"
+				ng-model="modificaDomicilioContraente">
+			<h5>Modifica domicilio del contraente</h5>
+		</div>
+	</div>
+	<div ng-include="'<spring:url value="/" />pages/modifica-domicilio'"
+		ng-show="modificaDomicilioContraente"></div>
+
+	<div class="row-fluid">
+		<div class="span6">
+			<input type="checkbox" class="pull-right"
+				ng-model="modificaResidenzaProprietario">
+			<h5>Modifica residenza del proprietario</h5>
+		</div>
+	</div>
+	<div ng-include="'<spring:url value="/" />pages/modifica-residenza'"
+		ng-show="modificaResidenzaProprietario"></div>
+	<h5>Informazioni</h5>
+	<div class="row-fluid">
+		<div class="span12">
+			<label class="checkbox"> <input type="checkbox" value="">
+				Canale banca
+			</label> <label class="checkbox"> <input type="checkbox" value="">
+				Consenso privacy
+			</label>
+		</div>
+	</div>
+	<h5>Documenti da richiedere</h5>
 	<div class="row-fluid">
 		<div class="span12">
 			<label class="checkbox"> <input type="checkbox" value="">
@@ -39,181 +60,6 @@
 			</label>
 		</div>
 	</div>
-	<h6>Residenza del contraente</h6>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Indirizzo</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="indirizzo" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Frazione</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="frazione" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Tel. casa</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="tel. casa" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Provincia</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="provincia" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Tel. cellulare</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="tel. cellulare" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Comune</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="comune" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Fax</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="fax" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Cap</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="cap" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Tel Ufficio</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="tel. ufficio" style="width: 100%">
-		</div>
-		<div class="span3"></div>
-		<div class="span3"></div>
-	</div>
-	<h6>Domicilio del contraente</h6>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Presso</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="presso" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Frazione</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="frazione" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Indirizzo</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="indirizzo" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Provincia</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="provincia" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Comune</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="comune" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Cap</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="cap" style="width: 100%">
-		</div>
-	</div>
-	<h6>Residenza del proprietario</h6>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Indirizzo</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="indirizzo" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Frazione</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="frazione" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Tel. casa</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="tel. casa" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Provincia</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="provincia" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Tel. cellulare</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="tel. cellulare" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Comune</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="comune" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Fax</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="fax" style="width: 100%">
-		</div>
-		<div class="span3">
-			<label>Cap</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="cap" style="width: 100%">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span3">
-			<label>Tel Ufficio</label>
-		</div>
-		<div class="span3">
-			<input type="text" placeholder="tel. ufficio" style="width: 100%">
-		</div>
-		<div class="span3"></div>
-		<div class="span3"></div>
-	</div>
+
+
 </div>

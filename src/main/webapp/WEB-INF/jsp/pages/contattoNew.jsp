@@ -1,4 +1,16 @@
 
+<div class="well well-small" style="margin-bottom: 2px">
+	<div class="row-fluid">
+		<div class="span3" style="min-height: 0px">
+			<b>Tipo contatto</b>
+		</div>
+		<div class="span3" style="min-height: 0px">Inbound</div>
+		<div class="span3" style="min-height: 0px">
+			<b>Utente</b>
+		</div>
+		<div class="span3" style="min-height: 0px">Mario Rossi</div>
+	</div>
+</div>
 <div class="well well-small"
 	style="background-color: white; margin-bottom: 2px">
 	<div ng-show="bancario == null">
@@ -17,9 +29,14 @@
 		</form>
 	</div>
 	<div ng-show="bancario != null">
-		<i class="icon-remove pull-right" ng-click="bancario = null"></i> <b>Bancario:
-		</b>{{bancario.nome}} {{bancario.cognome}}, filiale di
-		{{bancario.filiale}}, {{bancario.banca}}
+		<i class="icon-remove pull-right" ng-click="bancario = null"></i>
+		<div class="row-fluid">
+			<div class="span3" style="min-height: 0px">
+				<b>Bancario: </b>
+			</div>
+			<div>{{bancario.nome}} {{bancario.cognome}}, filiale di
+				{{bancario.filiale}}, {{bancario.banca}}</div>
+		</div>
 	</div>
 </div>
 <div class="well well-small"
@@ -40,10 +57,15 @@
 		</form>
 	</div>
 	<div ng-show="cliente != null">
-		<i class="icon-remove pull-right" ng-click="removeCliente()"></i> <b>Cliente:
-		</b>{{cliente.nome}} {{cliente.cognome}},{{cliente.codiceFiscale}}
+		<i class="icon-remove pull-right" ng-click="removeCliente()"></i>
+		<div class="row-fluid">
+			<div class="span3" style="min-height: 0px">
+				<b>Cliente: </b>
+			</div>
+			<div>{{cliente.nome}} {{cliente.cognome}},
+				{{cliente.codiceFiscale}}</div>
+		</div>
 	</div>
-</div>
 </div>
 <div class="well well-small"
 	style="background-color: white; margin-bottom: 2px">
@@ -59,8 +81,14 @@
 		</form>
 	</div>
 	<div ng-show="attivita.polizza != null">
-		<i class="icon-remove pull-right" ng-click="removePolizza()"></i> <b>Polizza:
-		</b>{{attivita.polizza.numero}}, prodotto {{attivita.polizza.prodotto}}
+		<i class="icon-remove pull-right" ng-click="removePolizza()"></i>
+		<div class="row-fluid">
+			<div class="span3" style="min-height: 0px">
+				<b>Polizza:</b>
+			</div>
+			<div>{{attivita.polizza.numero}}, prodotto
+				{{attivita.polizza.prodotto}}</div>
+		</div>
 	</div>
 </div>
 <div class="well well-small attivita" style="background-color: white">

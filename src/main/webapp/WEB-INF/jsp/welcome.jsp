@@ -11,8 +11,8 @@
 	<jsp:include page="fragments/bodyHeader.jsp" />
 	<div class="container">
 		<div class="hero-unit">
-			<h1>Spring mvc!</h1>
-			<p>spring mvc sample application</p>
+			<h1>nuovo siebel</h1>
+			<p>prototipo</p>
 		</div>
 	</div>
 	<jsp:include page="fragments/bodyFooter.jsp" />

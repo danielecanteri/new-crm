@@ -249,7 +249,7 @@
 		}
 		
 	}
-
+	
 	angular.module('myApp', []).directive('showErrors', function() {
 		return function(scope, element, attrs) {
 			var errors;
@@ -274,9 +274,22 @@
 		      });
 		};
 	});
+	
 	function NuovaPraticaController($scope, $http) {
 		$scope.myString = 'ciao'
+	}
+
+	function NuovoIndirizzoController($scope, $http) {
+		$scope.recapitiTelefonici = [{}];
+		
+		$scope.aggiungiRecapitoTelefonico = function() {
+			$scope.recapitiTelefonici.push({});
 		}
+
+		$scope.rimuoviRecapitoTelefonico = function(idx) {
+			$scope.recapitiTelefonici.splice(idx, 1);
+		}
+	}
 </script>
 <body>
 	<jsp:include page="../fragments/bodyHeader.jsp" />
@@ -287,7 +300,7 @@
 					<ul class="nav nav-tabs">
 						<li ng-class="{active : tab.active}" ng-repeat="tab in leftTabs"><a
 							href="{{'#'+tab.id}}" data-toggle="tab"
-							ng-click="selectLeftTab(tab.id)"><h5>{{tab.title}}</h5></a></li>
+							ng-click="selectLeftTab(tab.id)"><b>{{tab.title}}</b></a></li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane" ng-class="{active : tab.active}"
@@ -299,9 +312,11 @@
 
 					<div class="pull-right">
 						<button class="btn btn-success" ng-click="nuovaPratica(polizza)"
-							ng-show="leftTabs.length < 2">NUOVA PRATICA</button>
+							ng-show="leftTabs.length < 2 && (attivita.polizza != null || cliente != null)">NUOVA
+							PRATICA</button>
 						<button class="btn btn-success" ng-click="nuovoTask(polizza)"
-							ng-show="leftTabs.length < 2">NUOVA ATTIVITA'</button>
+							ng-show="leftTabs.length < 2 && (attivita.polizza != null || cliente != null)">NUOVA
+							ATTIVITA'</button>
 						<button class="btn btn-success" ng-click="console.log('saving')"
 							ng-show="leftTabs.length > 1">SALVA</button>
 					</div>

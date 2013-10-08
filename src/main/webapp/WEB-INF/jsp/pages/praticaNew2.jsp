@@ -5,7 +5,7 @@
 			<div class="row-fluid">
 				<div class="span3">Tipo</div>
 				<div class="span3">
-					<select style="width: 100%">
+					<select style="width: 100%" ng-model="tipo">
 						<option>Danni</option>
 						<option>Vita</option>
 					</select>
@@ -26,7 +26,7 @@
 						<option></option>
 						<option>generica</option>
 						<option>variazione contrattuale</option>
-						<option>Area 2</option>
+						<option>Area 3</option>
 					</select>
 				</div>
 				<div class="span3">Sub-Area</div>
@@ -34,19 +34,12 @@
 					<select style="width: 100%" ng-model="subareapratica">
 						<option></option>
 						<option ng-show="areapratica == 'generica'">generica</option>
-						<option ng-show="areapratica == 'variazione contrattuale'"
+						<option ng-show="tipo == 'Danni' && areapratica == 'variazione contrattuale'"
 							value="cambio-veicolo">cambio veicolo</option>
-						<option ng-show="areapratica == 'variazione contrattuale'"
-							value="variazione-anagrafica">variazione dati
-							anagrafici</option>
+						<option ng-show="tipo == 'Vita' && areapratica == 'variazione contrattuale'"
+							value="variazione-anagrafica">variazione indirizzo</option>
 					</select>
 				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span3">Canale IN</div>
-				<div class="span3">FAX</div>
-				<div class="span3">Canale OUT</div>
-				<div class="span3"></div>
 			</div>
 		</div>
 	</div>
@@ -56,6 +49,7 @@
 	</div>
 	<div class="well well-small" style="background-color: white"
 		ng-show="subareapratica == 'variazione-anagrafica'">
-		<div ng-include="'<spring:url value="/" />pages/variazione-anagrafica'"></div>
+		<div
+			ng-include="'<spring:url value="/" />pages/variazione-anagrafica'"></div>
 	</div>
 </div>
