@@ -220,7 +220,7 @@
 			return errorMessage;
 		}
 		
-		$scope.leftTabs = [{title: 'Contatto', active: true,
+		$scope.leftTabs = [{id: 'nuovoContatto', title: 'Contatto', active: true,
 			template : '<spring:url value="/" />pages/contatto-new'}];
 		
 		$scope.nuovoTask = function() {
@@ -235,7 +235,7 @@
 			});
 
 		}
-
+		
 		$scope.nuovaPratica = function() {
 			$scope.leftTabs.forEach(function(item) {
 				item.active = false;
@@ -246,9 +246,8 @@
 				active : true,
 				template : '<spring:url value="/" />pages/pratica-new2'
 			});
-			
 		}
-
+		
 		$scope.sollecito = function() {
 			$scope.leftTabs.forEach(function(item) {
 				item.active = false;
@@ -261,7 +260,6 @@
 			});
 			
 		}
-		
 	}
 	
 	angular.module('myApp', []).directive('showErrors', function() {
@@ -311,18 +309,47 @@
 		<div class="row-fluid">
 			<div class="span5">
 				<div class="well well-small">
-					<ul class="nav nav-tabs">
-						<li ng-class="{active : tab.active}" ng-repeat="tab in leftTabs"><a
-							href="{{'#'+tab.id}}" data-toggle="tab"
-							ng-click="selectLeftTab(tab.id)"><b>{{tab.title}}</b></a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane" ng-class="{active : tab.active}"
-							id="{{tab.id}}" ng-repeat="tab in leftTabs">
-							<div ng-include="tab.template" ng-show="!tab.loading"></div>
+					<div class="accordion" id="accordion">
+						<div class="accordion-group" ng-repeat="tab in leftTabs">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" ng-click="selectLeftTab(tab.id)">{{tab.title}}</a>
+							</div>
+							<div id="collapse_{{tab.id}}" class="accordion-body collapse"
+								ng-class="{in: tab.active}">
+								<div class="accordion-inner">
+									<div ng-include="tab.template" ng-show="!tab.loading"></div>
+								</div>
+							</div>
+							<div class="accordion-inner" ng-show="tab.id == 'nuovoContatto' && !tab.active">
+								<div class="well well-small attivita"
+									style="background-color: white">
+									<form class="form-inline">
+										<fieldset>
+											<h5>Richiesta</h5>
+											<div class="container-fluid">
+												<div class="row-fluid">
+													<div class="span2">
+														<label>Descrizione</label>
+													</div>
+													<div class="span10">
+														<textarea rows="3" ng-model="$parent.descrizioneContatto"></textarea>
+													</div>
+												</div>
+												<div class="row-fluid">
+													<div class="span2">
+														<label>Commenti</label>
+													</div>
+													<div class="span10">
+														<textarea rows="3" ng-model="$parent.commentiContatto"></textarea>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
-
 
 					<div class="pull-right">
 						<button class="btn btn-success" ng-click="sollecito(polizza)"

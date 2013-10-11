@@ -36,6 +36,8 @@
 						<option ng-show="areapratica == 'generica'">generica</option>
 						<option ng-show="tipo == 'Danni' && areapratica == 'variazione contrattuale'"
 							value="cambio-veicolo">cambio veicolo</option>
+						<option ng-show="tipo == 'Danni' && areapratica == 'variazione contrattuale'"
+							value="cambio-veicolo-indirizzo">cambio veicolo e indirizzo</option>
 						<option ng-show="tipo == 'Vita' && areapratica == 'variazione contrattuale'"
 							value="variazione-anagrafica">variazione indirizzo</option>
 					</select>
@@ -46,6 +48,10 @@
 	<div class="well well-small" style="background-color: white"
 		ng-show="subareapratica == 'cambio-veicolo'">
 		<div ng-include="'<spring:url value="/" />pages/cambio-veicolo'"></div>
+	</div>
+	<div class="well well-small" style="background-color: white"
+		ng-show="subareapratica == 'cambio-veicolo-indirizzo'">
+		<div ng-include="'<spring:url value="/" />pages/cambio-veicolo-indirizzo'"></div>
 	</div>
 	<div class="well well-small" style="background-color: white"
 		ng-show="subareapratica == 'variazione-anagrafica'">

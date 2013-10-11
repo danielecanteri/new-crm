@@ -220,7 +220,7 @@
 			return errorMessage;
 		}
 		
-		$scope.leftTabs = [{title: 'Contatto', active: true,
+		$scope.leftTabs = [{id: 'nuovoContatto', title: 'Contatto', active: true,
 			template : '<spring:url value="/" />pages/contatto-new'}];
 		
 		$scope.nuovoTask = function() {
@@ -246,9 +246,11 @@
 				active : true,
 				template : '<spring:url value="/" />pages/pratica-new2'
 			});
-			
+			$(".collapse").collapse()
+			$("#collapse_nuovoContatto").collapse('hide');
+			$("#collapse_nuovaPratica").collapse('show');
 		}
-
+		
 		$scope.sollecito = function() {
 			$scope.leftTabs.forEach(function(item) {
 				item.active = false;
@@ -259,9 +261,11 @@
 				active : true,
 				template : '<spring:url value="/" />pages/sollecito-new'
 			});
+			$(".collapse").collapse()
+			$("#collapse_nuovoContatto").collapse('hide');
+			$("#collapse_nuovaPratica").collapse('show');
 			
 		}
-		
 	}
 	
 	angular.module('myApp', []).directive('showErrors', function() {
@@ -311,18 +315,23 @@
 		<div class="row-fluid">
 			<div class="span5">
 				<div class="well well-small">
-					<ul class="nav nav-tabs">
-						<li ng-class="{active : tab.active}" ng-repeat="tab in leftTabs"><a
-							href="{{'#'+tab.id}}" data-toggle="tab"
-							ng-click="selectLeftTab(tab.id)"><b>{{tab.title}}</b></a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane" ng-class="{active : tab.active}"
-							id="{{tab.id}}" ng-repeat="tab in leftTabs">
-							<div ng-include="tab.template" ng-show="!tab.loading"></div>
-						</div>
-					</div>
 
+
+					<div class="accordion" id="accordion">
+
+						<div class="accordion-group" ng-repeat="tab in leftTabs">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse"
+									data-parent="#accordion" href="#collapse_{{tab.id}}">{{tab.title}}</a>
+							</div>
+							<div id="collapse_{{tab.id}}" class="accordion-body collapse in">
+								<div class="accordion-inner">
+									<div ng-include="tab.template" ng-show="!tab.loading"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
 
 					<div class="pull-right">
 						<button class="btn btn-success" ng-click="sollecito(polizza)"

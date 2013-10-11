@@ -84,11 +84,10 @@
 		}
 
 		$scope.selectLeftTab = function(id) {
+			
 			$scope.leftTabs.forEach(function(tab) {
 				if (id == tab.id)
-					tab.active = true;
-				else
-					tab.active = false;
+					tab.active = !tab.active;
 			});
 		}
 
@@ -220,8 +219,12 @@
 			return errorMessage;
 		}
 		
-		$scope.leftTabs = [{title: 'Contatto', active: true,
-			template : '<spring:url value="/" />pages/contatto-new'}];
+		$scope.leftTabs = [ {id: 'nuovoContatto',title: 'Contatto',
+     	   active: true, 
+    	   template : '<spring:url value="/" />pages/contatto-no-richiesta-new'},
+       {id: 'nuovaRichiesta',title: 'Richiesta',
+    	   active: true, 
+    	   template : '<spring:url value="/" />pages/richiesta-new'}];
 		
 		$scope.nuovoTask = function() {
 			$scope.leftTabs.forEach(function(item) {
@@ -235,20 +238,19 @@
 			});
 
 		}
-
+		
 		$scope.nuovaPratica = function() {
 			$scope.leftTabs.forEach(function(item) {
 				item.active = false;
 			});
 			$scope.leftTabs.push({
 				id : 'nuovaPratica',
-				title : 'Nuova pratica',
+				title : 'Pratica',
 				active : true,
 				template : '<spring:url value="/" />pages/pratica-new2'
 			});
-			
 		}
-
+		
 		$scope.sollecito = function() {
 			$scope.leftTabs.forEach(function(item) {
 				item.active = false;
@@ -261,7 +263,6 @@
 			});
 			
 		}
-		
 	}
 	
 	angular.module('myApp', []).directive('showErrors', function() {
@@ -311,30 +312,32 @@
 		<div class="row-fluid">
 			<div class="span5">
 				<div class="well well-small">
-					<ul class="nav nav-tabs">
-						<li ng-class="{active : tab.active}" ng-repeat="tab in leftTabs"><a
-							href="{{'#'+tab.id}}" data-toggle="tab"
-							ng-click="selectLeftTab(tab.id)"><b>{{tab.title}}</b></a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane" ng-class="{active : tab.active}"
-							id="{{tab.id}}" ng-repeat="tab in leftTabs">
-							<div ng-include="tab.template" ng-show="!tab.loading"></div>
+					<div class="accordion" id="accordion">
+						<div class="accordion-group" ng-repeat="tab in leftTabs">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" ng-click="selectLeftTab(tab.id)">{{tab.title}}</a>
+							</div>
+							<div id="collapse_{{tab.id}}" class="accordion-body collapse"
+								ng-class="{in: tab.active}">
+								<div class="accordion-inner">
+									<div ng-include="tab.template" ng-show="!tab.loading"></div>
+								</div>
+							</div>
+							
 						</div>
 					</div>
 
-
 					<div class="pull-right">
 						<button class="btn btn-success" ng-click="sollecito(polizza)"
-							ng-show="leftTabs.length < 2">SOLLECITO</button>
+							ng-show="leftTabs.length < 3">SOLLECITO</button>
 						<button class="btn btn-success" ng-click="nuovaPratica(polizza)"
-							ng-show="leftTabs.length < 2 && (attivita.polizza != null || cliente != null)">NUOVA
+							ng-show="leftTabs.length < 3 && (attivita.polizza != null || cliente != null)">NUOVA
 							PRATICA</button>
 						<button class="btn btn-success" ng-click="nuovoTask(polizza)"
-							ng-show="leftTabs.length < 2 && (attivita.polizza != null || cliente != null)">NUOVA
+							ng-show="leftTabs.length < 3 && (attivita.polizza != null || cliente != null)">NUOVA
 							ATTIVITA'</button>
 						<button class="btn btn-success" ng-click="console.log('saving')"
-							ng-show="leftTabs.length > 1">SALVA</button>
+							ng-show="leftTabs.length > 2">SALVA</button>
 					</div>
 					<div>
 						<i>&nbsp;</i>
