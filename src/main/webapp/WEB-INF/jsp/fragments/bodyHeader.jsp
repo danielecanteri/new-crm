@@ -14,22 +14,9 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li><a href="<spring:url value="/attivita/new"/>">New</a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" />Inbound<b
-						class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="<spring:url value="/pages/new-inbound"/>">Nuova
-									Inbound</a></li>
-							<li><a
-								href="<spring:url value="/pages/new-inbound-accordion"/>">Nuova
-									Inbound (Accordion)</a></li>
-							<li><a
-								href="<spring:url value="/pages/new-inbound-accordion2"/>">Nuova
-									Inbound (Accordion 2)</a></li>
-							<li><a
-								href="<spring:url value="/pages/new-inbound-accordion3"/>">Nuova
-									Inbound (Accordion 3)</a></li>
-						</ul></li>
+					<li><a
+						href="<spring:url value="/pages/new-inbound-accordion4"/>">Nuova
+							Inbound</a></li>
 					<li><a href="<spring:url value="/attivita/mylist"/>">Mie</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
@@ -73,6 +60,21 @@
 						</ul></li>
 					</li>
 					<li><a href="<spring:url value="/showcase/index"/>">Showcase</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" />Old<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<spring:url value="/pages/new-inbound"/>">Nuova
+									Inbound</a></li>
+							<li><a
+								href="<spring:url value="/pages/new-inbound-accordion"/>">Nuova
+									Inbound (Accordion)</a></li>
+							<li><a
+								href="<spring:url value="/pages/new-inbound-accordion2"/>">Nuova
+									Inbound (Accordion 2)</a></li>
+							<li><a
+								href="<spring:url value="/pages/new-inbound-accordion3"/>">Nuova
+									Inbound (Accordion 3)</a></li>
+						</ul></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
