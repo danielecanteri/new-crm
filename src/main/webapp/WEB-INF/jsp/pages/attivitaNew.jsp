@@ -2,7 +2,7 @@
 <div class="well well-small" style="background-color: white">
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<div class="span2">Motivo chiamata</div>
+			<div class="span2">Argomento</div>
 			<div class="span4">
 				<select style="width: 100%">
 					<option></option>

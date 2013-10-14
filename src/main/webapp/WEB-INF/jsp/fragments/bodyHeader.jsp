@@ -13,38 +13,11 @@
 			<a class="brand" href="<spring:url value="/"/>">Home</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li><a href="<spring:url value="/attivita/new"/>">New</a></li>
 					<li><a
 						href="<spring:url value="/pages/new-inbound-accordion4"/>">Nuova
 							Inbound</a></li>
-					<li><a href="<spring:url value="/attivita/mylist"/>">Mie</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" />Gestione Attivit&agrave; <b
-						class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="<spring:url value="/pages/gestione-attivita"/>">Versione
-									1</a></li>
-							<li><a
-								href="<spring:url value="/pages/gestione-attivita2"/>">Versione
-									2</a></li>
-							<li><a
-								href="<spring:url value="/pages/gestione-attivita3"/>">Versione
-									3</a></li>
-							<li><a
-								href="<spring:url value="/pages/gestione-attivita4"/>">Versione
-									4</a></li>
-							<li><a
-								href="<spring:url value="/pages/gestione-attivita5"/>">Versione
-									5</a></li>
-							<li><a
-								href="<spring:url value="/pages/gestione-attivita6"/>">Versione
-									6</a></li>
-							<li><a
-								href="<spring:url value="/pages/gestione-attivita7"/>">Versione
-									7</a></li>
-						</ul></li>
-					</li>
+					<li><a href="<spring:url value="/pages/gestione-attivita8"/>">Gestione
+							Attivit&agrave;</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" />Gestione Pratiche<b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -74,6 +47,28 @@
 							<li><a
 								href="<spring:url value="/pages/new-inbound-accordion3"/>">Nuova
 									Inbound (Accordion 3)</a></li>
+							<li><a href="<spring:url value="/pages/gestione-attivita"/>">Versione
+									1</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita2"/>">Versione
+									2</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita3"/>">Versione
+									3</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita4"/>">Versione
+									4</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita5"/>">Versione
+									5</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita6"/>">Versione
+									6</a></li>
+							<li><a
+								href="<spring:url value="/pages/gestione-attivita7"/>">Versione
+									7</a></li>
+							<li><a href="<spring:url value="/attivita/mylist"/>">Mie</a></li>
+							<li><a href="<spring:url value="/attivita/new"/>">New</a></li>
 						</ul></li>
 				</ul>
 			</div>

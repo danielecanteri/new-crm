@@ -15,6 +15,7 @@
 		$scope.cliente = null;
 		$scope.polizza = null;
 		$scope.attivita = {};
+		$scope.collapsed = {};
 		$scope.doSearchBancario = function() {
 			$scope.removeTabById('ricercaBancario');
 			$scope.tabs.forEach(function(item) {
@@ -98,6 +99,7 @@
 		}
 
 		$scope.selectBancario = function(bancario) {
+			$scope.collapsed.infoBancario = true;
 			$scope.removeTabById('ricercaBancario');
 			$scope.bancario = bancario;
 		}
@@ -113,6 +115,7 @@
 		}
 
 		$scope.selectCliente = function(cliente) {
+			$scope.collapsed.infoCliente = true;
 			$scope.removeTabById('ricercaCliente');
 			$scope.cliente = cliente;
 			$http.get('<spring:url value="/" />attivita/cliente/' + $scope.cliente.id).success(
@@ -131,6 +134,8 @@
 		}
 		
 		$scope.selectPolizza = function(polizza) {
+			$scope.collapsed.infoCliente = true;
+			$scope.collapsed.infoPolizza = true;
 			$scope.cliente = {nome: 'Mario', cognome: 'Rossi', codiceFiscale: 'CVVBDSG746BVB543Z'}
 			$scope.attivita.polizza = polizza;
 			$scope.viewPolizza(polizza);
@@ -168,11 +173,13 @@
 		}
 
 		$scope.removeCliente = function() {
+			$scope.collapsed.infoCliente = false;
 			$scope.cliente = null;
 			$scope.attivita.polizza = null;
 			$scope.removeTabById('dettaglioCliente');
 		}
 		$scope.removePolizza = function() {
+			$scope.collapsed.infoPolizza = false;
 			$scope.attivita.polizza = null;
 		}
 
@@ -221,12 +228,15 @@
 		
 		$scope.leftTabs = [ {id: 'nuovoContatto',title: 'Contatto',
      	   active: true, 
-    	   template : '<spring:url value="/" />pages/contatto-no-richiesta-new'},
+    	   template : '<spring:url value="/" />pages/contatto-no-richiesta-new-accordion4'},
        {id: 'nuovaRichiesta',title: 'Richiesta',
     	   active: true, 
     	   template : '<spring:url value="/" />pages/richiesta-new-con-tipo-contatto'}];
 		
 		$scope.nuovoTask = function() {
+			$scope.collapsed.infoBancario = true;
+			$scope.collapsed.infoCliente = true;
+			$scope.collapsed.infoPolizza = true;
 			$scope.tipoContatto = 'attivita'; 
 			$scope.leftTabs.splice(2);
 			$scope.leftTabs.push({
@@ -248,6 +258,9 @@
 			if (!$scope.isPolizzaSelezionata()) {
 				return;
 			}
+			$scope.collapsed.infoBancario = true;
+			$scope.collapsed.infoCliente = true;
+			$scope.collapsed.infoPolizza = true;
 			$scope.tipoContatto = 'pratica'; 
 			$scope.leftTabs.splice(2);
 //			$scope.leftTabs.forEach(function(item) {
@@ -268,6 +281,9 @@
 		}
 		
 		$scope.sollecito = function() {
+			$scope.collapsed.infoBancario = true;
+			$scope.collapsed.infoCliente = true;
+			$scope.collapsed.infoPolizza = true;
 			$scope.tipoContatto = 'sollecito';
 			$scope.leftTabs.splice(2);
 			$scope.leftTabs.push({
@@ -337,6 +353,7 @@
 			$scope.recapitiTelefonici.splice(idx, 1);
 		}
 	}
+	
 </script>
 <body>
 	<jsp:include page="../fragments/bodyHeader.jsp" />

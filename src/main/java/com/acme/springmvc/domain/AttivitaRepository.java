@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -14,9 +15,24 @@ public class AttivitaRepository {
 		for (int i = 0; i < 10; i++) {
 			Attivita attivita = new Attivita();
 			attivita.setId(new Long(i));
+			attivita.setNumero(1001258L + i);
+			attivita.setTipo(i % 2 == 0 ? "Cliente" : "Interna");
+			attivita.setArgomento(i % 2 == 0 ? "Informazioni fondi"
+					: "Richiesta info a ptf");
 			attivita.setDescrizione("descrizione " + i);
 			attivita.setCreata(new Date());
-			attivita.setStato("new");
+			attivita.setApertura(new DateTime().minusDays(i).toDate());
+			attivita.setStato("in corso");
+			attivita.setNumero(16353L + i);
+			attivita.setCliente(i % 2 == 0 ? "Mario Rossi" : "Luigi Verdi");
+			attivita.setPraticaCollegata(i % 2 == 0 ? "-" : "123321");
+			attivita.setBanca(i % 2 == 0 ? "001 - B.P. Emilia Romagna"
+					: "013 - B.P. Sondrio");
+			attivita.setProdotto("146 - Private Selecta");
+			attivita.setRichiesta("Il cliente richiede...");
+			attivita.setSolleciti(i % 2 == 0 ? "!!" : "");
+			attivita.setPriorita("Media");
+
 			result.add(attivita);
 		}
 		return result;

@@ -3,7 +3,7 @@
 	<div class="well well-small" style="background-color: white">
 		<div>
 			<div class="row-fluid">
-				<div class="span3">Tipo</div>
+				<div class="span3">Ramo</div>
 				<div class="span3">
 					<select style="width: 100%" ng-model="tipo">
 						<option>Danni</option>

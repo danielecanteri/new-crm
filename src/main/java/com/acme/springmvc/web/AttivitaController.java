@@ -59,6 +59,12 @@ public class AttivitaController {
 		return new Gson().toJson(attivitaRepository.list());
 	}
 
+	@RequestMapping(value = "/attivita/mylistasjson2")
+	@ResponseBody
+	public List<Attivita> listasjson2() {
+		return attivitaRepository.list();
+	}
+
 	@RequestMapping(value = "/attivita/my-recenti")
 	@ResponseBody
 	public String myRecenti() {
