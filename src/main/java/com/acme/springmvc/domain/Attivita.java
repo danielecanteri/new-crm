@@ -1,6 +1,8 @@
 package com.acme.springmvc.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Attivita {
 
@@ -19,8 +21,12 @@ public class Attivita {
 	private String banca;
 	private String prodotto;
 	private String richiesta;
+	private String risposta;
 	private String solleciti;
 	private String priorita;
+	private String assegnata;
+	private String creataDa;
+	private List<String> note = new ArrayList<String>();
 
 	public Long getId() {
 		return id;
@@ -142,6 +148,14 @@ public class Attivita {
 		this.richiesta = richiesta;
 	}
 
+	public String getRisposta() {
+		return risposta;
+	}
+
+	public void setRisposta(String risposta) {
+		this.risposta = risposta;
+	}
+
 	public String getSolleciti() {
 		return solleciti;
 	}
@@ -156,6 +170,30 @@ public class Attivita {
 
 	public void setPriorita(String priorita) {
 		this.priorita = priorita;
+	}
+
+	public String getAssegnata() {
+		return assegnata;
+	}
+
+	public void setAssegnata(String assegnata) {
+		this.assegnata = assegnata;
+	}
+
+	public String getCreataDa() {
+		return creataDa;
+	}
+
+	public void setCreataDa(String creataDa) {
+		this.creataDa = creataDa;
+	}
+
+	public List<String> getNote() {
+		return note;
+	}
+
+	public void addNota(String nota) {
+		this.note.add(nota);
 	}
 
 }

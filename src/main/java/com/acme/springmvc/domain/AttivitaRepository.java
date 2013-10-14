@@ -30,8 +30,11 @@ public class AttivitaRepository {
 					: "013 - B.P. Sondrio");
 			attivita.setProdotto("146 - Private Selecta");
 			attivita.setRichiesta("Il cliente richiede...");
+			attivita.setRisposta("blah blah blah");
 			attivita.setSolleciti(i % 2 == 0 ? "!!" : "");
 			attivita.setPriorita("Media");
+			attivita.setAssegnata("Filippo Bianchi");
+			attivita.setCreataDa("Gustavo Gialli");
 
 			result.add(attivita);
 		}

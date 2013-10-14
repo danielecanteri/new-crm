@@ -73,6 +73,7 @@
 
 		$scope.selectAttivita = function(attivita) {
 			$scope.attivitaSelected = attivita;
+			$scope.page.tipo = 'detail';
 		}
 
 		$scope.sxTabs = [ {
@@ -99,28 +100,59 @@
 
 		$scope.mieAttivita();
 
+		$scope.page = {
+			tipo : "master"
+		};
+
+		$scope.leftTabs = [
+				{
+					id : 'nuovoContatto',
+					title : 'Contatto',
+					active : true,
+					template : '<spring:url value="/" />pages/contatto-no-richiesta-view-accordion4'
+				},
+				{
+					id : 'nuovaRichiesta',
+					title : 'Richiesta',
+					active : true,
+					template : '<spring:url value="/" />pages/richiesta-view'
+				}, {
+					id : 'nuovaAttivita',
+					title : 'Attività',
+					active : true,
+					template : '<spring:url value="/" />pages/attivita-view'
+				}, {
+					id : 'infoRicontatto',
+					title : 'Info Ricontatto',
+					active : true,
+					template : '<spring:url value="/" />pages/ricontatto-new'
+				} ];
+		$scope.selectLeftTab = function(id) {
+
+			$scope.leftTabs.forEach(function(tab) {
+				if (id == tab.id)
+					tab.active = !tab.active;
+			});
+		}
+
+	}
+	function NuovoIndirizzoController($scope, $http) {
+		$scope.recapitiTelefonici = [ {} ];
+
+		$scope.aggiungiRecapitoTelefonico = function() {
+			$scope.recapitiTelefonici.push({});
+		}
+
+		$scope.rimuoviRecapitoTelefonico = function(idx) {
+			$scope.recapitiTelefonici.splice(idx, 1);
+		}
 	}
 </script>
-<style>
-.toggable {
-	position: relative;
-	transition: left 0.0s;
-}
-
-.toggable.left {
-	position: absolute;
-	left: -1800px
-}
-
-.toggable.right {
-	position: absolute;
-	left: 1800px
-}
-</style>
 <body ng-controller="PageController">
 	<jsp:include page="../fragments/bodyHeader.jsp" />
-	<div class="container-fluid toggable"
-		ng-class="{left: attivitaSelected != null}">
+	<div class="container-fluid"
+		ng-class="{left: attivitaSelected != null}"
+		ng-show="page.tipo == 'master'">
 		<div class="row-fluid">
 			<div class="span12">
 				<div class="navbar">
@@ -184,20 +216,37 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid toggable"
-		ng-class="{right: attivitaSelected == null}">
+	<div class="container-fluid" ng-show="page.tipo == 'detail'">
+		<a href="#" ng-click="page.tipo = 'master'" class="pull-right">Torna
+			alla ricerca</a>
 		<div class="row-fluid">
 			<div class="span5">
-				<ul class="nav nav-tabs">
-					<li ng-class="{active: tab.active}" ng-repeat="tab in sxTabs"><a
-						href="#" ng-click="selectSxTab(tab)">{{tab.title}}</a></li>
-				</ul>
-				<div class="tab-content">
-					<div ng-repeat="tab in sxTabs" class="tab-pane"
-						ng-class="{active: tab.active}">
-						<div ng-include="tab.template"></div>
+				<div class="well well-small">
+					<div class="accordion" id="accordion">
+						<div class="accordion-group" ng-repeat="tab in leftTabs">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" ng-click="selectLeftTab(tab.id)">{{tab.title}}</a>
+							</div>
+							<div id="collapse_{{tab.id}}" class="accordion-body collapse"
+								ng-class="{in: tab.active}">
+								<div class="accordion-inner">
+									<div ng-include="tab.template" ng-show="!tab.loading"></div>
+								</div>
+							</div>
+
+						</div>
 					</div>
+
+					<div class="pull-right">
+						<button class="btn btn-success" ng-click="console.log('saving')"
+							ng-show="tipoContatto != null">SALVA</button>
+					</div>
+
+					<div>&nbsp:</div>
+					<div>&nbsp:</div>
+
 				</div>
+
 			</div>
 			<div class="span7">
 				<ul class="nav nav-tabs">
