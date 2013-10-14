@@ -36,8 +36,10 @@
 				<div class="span3" style="min-height: 0px">
 					<b>Cliente: </b>
 				</div>
-				<div>{{cliente.nome}} {{cliente.cognome}},
-					{{cliente.codiceFiscale}}</div>
+				<div>
+					<a href="#" ng-click="page.rightTab = 'cliente'">{{cliente.nome}}
+						{{cliente.cognome}}</a>, {{cliente.codiceFiscale}}
+				</div>
 			</div>
 		</div>
 		<div ng-show="cliente == null">
@@ -53,18 +55,20 @@
 	</div>
 </div>
 <div class="well well-small" style="margin-bottom: 2px"
-	ng-class="{white: attivita.polizza != null}">
+	ng-class="{white: attivitaSelected.numeroPolizza != null}">
 	<div>
-		<div ng-show="attivita.polizza != null">
+		<div ng-show="attivitaSelected.numeroPolizza != null">
 			<div class="row-fluid">
 				<div class="span3" style="min-height: 0px">
 					<b>Polizza:</b>
 				</div>
-				<div>{{attivita.polizza.numero}}, prodotto
-					{{attivita.polizza.prodotto}}</div>
+				<div>
+					<a href="#" ng-click="page.rightTab = 'polizza'">{{attivitaSelected.numeroPolizza}}</a>,
+					prodotto {{attivitaSelected.prodotto}}
+				</div>
 			</div>
 		</div>
-		<div ng-show="attivita.polizza == null">
+		<div ng-show="attivitaSelected.numeroPolizza == null">
 			<div class="row-fluid">
 				<div class="span3" style="min-height: 0px">
 					<b>Polizza: </b>

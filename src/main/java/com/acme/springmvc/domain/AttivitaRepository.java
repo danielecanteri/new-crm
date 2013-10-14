@@ -23,7 +23,7 @@ public class AttivitaRepository {
 			attivita.setCreata(new Date());
 			attivita.setApertura(new DateTime().minusDays(i).toDate());
 			attivita.setStato("in corso");
-			attivita.setNumero(16353L + i);
+			attivita.setNumeroPolizza("" + 16353L + i);
 			attivita.setCliente(i % 2 == 0 ? "Mario Rossi" : "Luigi Verdi");
 			attivita.setPraticaCollegata(i % 2 == 0 ? "-" : "123321");
 			attivita.setBanca(i % 2 == 0 ? "001 - B.P. Emilia Romagna"
@@ -36,6 +36,11 @@ public class AttivitaRepository {
 			attivita.setAssegnata("Filippo Bianchi");
 			attivita.setCreataDa("Gustavo Gialli");
 
+			attivita.addNota("Mario Bianchi", new DateTime().minusDays(i)
+					.toDate(),
+					"un commento molto molto molto molto molto molto lungo");
+			attivita.addNota("Luigi Verdi", new DateTime().minusDays(i)
+					.toDate(), "prova prova");
 			result.add(attivita);
 		}
 		return result;

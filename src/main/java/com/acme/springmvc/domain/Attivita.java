@@ -26,7 +26,7 @@ public class Attivita {
 	private String priorita;
 	private String assegnata;
 	private String creataDa;
-	private List<String> note = new ArrayList<String>();
+	private List<Nota> note = new ArrayList<Nota>();
 
 	public Long getId() {
 		return id;
@@ -188,12 +188,16 @@ public class Attivita {
 		this.creataDa = creataDa;
 	}
 
-	public List<String> getNote() {
+	public List<Nota> getNote() {
 		return note;
 	}
 
-	public void addNota(String nota) {
-		this.note.add(nota);
+	public void addNota(String autore, Date date, String nota) {
+		Nota nota2 = new Nota();
+		nota2.setAutore(autore);
+		nota2.setCreata(date);
+		nota2.setNota(nota);
+		this.note.add(nota2);
 	}
 
 }

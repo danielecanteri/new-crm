@@ -18,13 +18,8 @@
 							Inbound</a></li>
 					<li><a href="<spring:url value="/pages/gestione-attivita8"/>">Gestione
 							Attivit&agrave;</a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" />Gestione Pratiche<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="<spring:url value="/pages/gestione-pratiche"/>">Versione
-									1</a></li>
-						</ul></li>
-					</li>
+					<li><a href="<spring:url value="/pages/gestione-pratiche2"/>">Gestione
+							Pratiche</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" />Gestione Fax<b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -69,6 +64,8 @@
 									7</a></li>
 							<li><a href="<spring:url value="/attivita/mylist"/>">Mie</a></li>
 							<li><a href="<spring:url value="/attivita/new"/>">New</a></li>
+							<li><a href="<spring:url value="/pages/gestione-pratiche"/>">Versione
+									1</a></li>
 						</ul></li>
 				</ul>
 			</div>

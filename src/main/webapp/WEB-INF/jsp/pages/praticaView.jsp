@@ -9,11 +9,8 @@
 		<div class="row-fluid">
 			<div class="span2">Tipo</div>
 			<div class="span4">{{attivitaSelected.tipo}}</div>
-			<div class="span2">Pratica</div>
-			<div class="span4">
-				<a ng-show="attivitaSelected.praticaCollegata != '-'" href="#">{{attivitaSelected.praticaCollegata}}</a>
-				<span ng-show="attivitaSelected.praticaCollegata == '-'">{{attivitaSelected.praticaCollegata}}</span>
-			</div>
+			<div class="span2">Responsabile Pratica</div>
+			<div class="span4">Ptf1</div>
 		</div>
 		<div class="row-fluid">
 			<div class="span2">Apertura</div>
@@ -29,9 +26,15 @@
 			<div class="span4">{{attivitaSelected.creataDa}}</div>
 		</div>
 		<div class="row-fluid">
-			<div class="span2">Argomento</div>
-			<div class="span4">{{attivitaSelected.argomento}}</div>
+			<div class="span2">Ramo</div>
+			<div class="span4">{{praticaSelected.ramo}}</div>
 			<div class="span6"></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span2">Area</div>
+			<div class="span4">{{praticaSelected.area}}</div>
+			<div class="span2">Sub-area</div>
+			<div class="span4">{{praticaSelected.subarea}}</div>
 		</div>
 		<div class="row-fluid">
 			<div class="span2">

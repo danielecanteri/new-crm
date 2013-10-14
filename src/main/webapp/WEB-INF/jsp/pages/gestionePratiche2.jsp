@@ -48,9 +48,9 @@
 			active : false
 		} ];
 
-		$scope.mieAttivita = function() {
-			$http.get('../attivita/mylistasjson2').success(function(data) {
-				$scope.attivita = data;
+		$scope.miePratiche = function() {
+			$http.get('../pratica/list').success(function(data) {
+				$scope.pratiche = data;
 			});
 		};
 
@@ -71,8 +71,9 @@
 			$scope.menu[idx].active = true;
 		}
 
-		$scope.selectAttivita = function(attivita) {
-			$scope.attivitaSelected = attivita;
+		$scope.selectPratica = function(pratica) {
+			$scope.attivitaSelected = pratica;
+			$scope.praticaSelected = pratica;
 			$scope.page.tipo = 'detail';
 		}
 
@@ -98,11 +99,11 @@
 			tab.active = true;
 		}
 
-		$scope.mieAttivita();
+		$scope.miePratiche();
 
 		$scope.page = {
 			tipo : "master",
-			leftTab : "attivita",
+			leftTab : "pratica",
 			rightTab : "cliente"
 
 		};
@@ -113,21 +114,30 @@
 					title : 'Contatto',
 					active : true,
 					template : '<spring:url value="/" />pages/contatto-no-richiesta-view-accordion4'
-				}, {
+				},
+				{
 					id : 'nuovaRichiesta',
 					title : 'Richiesta',
 					active : true,
 					template : '<spring:url value="/" />pages/richiesta-view'
-				}, {
-					id : 'nuovaAttivita',
-					title : 'Attività',
+				},
+				{
+					id : 'nuovaPratica',
+					title : 'Pratica',
 					active : true,
-					template : '<spring:url value="/" />pages/attivita-view'
-				}, {
+					template : '<spring:url value="/" />pages/pratica-view'
+				},
+				{
 					id : 'contattiCliente',
 					title : 'Contatti Cliente',
 					active : false,
 					template : '<spring:url value="/" />pages/contatti-list'
+				},
+				{
+					id : 'taskSecondari',
+					title : 'Task secondari',
+					active : false,
+					template : '<spring:url value="/" />pages/task-secondari-list'
 				}, {
 					id : 'documenti',
 					title : 'Documenti',
@@ -171,7 +181,7 @@
 					<div class="navbar-inner">
 						<ul class="nav">
 							<li ng-class="{active : menu[0].active}"><a href="#"
-								ng-click="selectMenu(0);mieAttivita()">Mie&nbsp;<span
+								ng-click="selectMenu(0);miePratiche()">Mie&nbsp;<span
 									class="badge pull-right">10</span></a></li>
 							<li ng-class="{active : menu[1].active}"><a href="#"
 								ng-click="selectMenu(1);recentiAttivita()">Da assegnare</a></li>
@@ -188,41 +198,43 @@
 		<div class="row-fluid">
 			<div class="span12">
 				<table class="table table-striped table-bordered table-hover"
-					ng-show="attivita.length > 0">
+					ng-show="pratiche.length > 0">
 					<thead>
 						<tr>
-							<th>N. attività</th>
-							<th>Tipo</th>
-							<th>Argomento</th>
+							<th>N. pratica</th>
+							<th>Ramo</th>
 							<th>Stato</th>
+							<th>Area</th>
+							<th>Sub-area</th>
 							<th>Apertura</th>
 							<th>N. polizza</th>
 							<th>Cliente</th>
-							<th>Pratica collegata</th>
 							<th>Banca</th>
 							<th>Prodotto</th>
 							<th>Richiesta</th>
 							<th>Solleciti</th>
 							<th>Priorità</th>
+							<th>Ufficio</th>
 							<th></th>
 						</tr>
 					</thead>
-					<tr ng-repeat="attivita in attivita">
-						<td>{{attivita.numero}}</td>
-						<td>{{attivita.tipo}}</td>
-						<td>{{attivita.argomento}}</td>
-						<td>{{attivita.stato}}</td>
-						<td>{{attivita.apertura | date :'dd-MM-yyyy'}}</td>
-						<td>{{attivita.numeroPolizza}}</td>
-						<td>{{attivita.cliente}}</td>
-						<td>{{attivita.praticaCollegata}}</td>
-						<td>{{attivita.banca}}</td>
-						<td>{{attivita.prodotto}}</td>
-						<td>{{attivita.richiesta}}</td>
-						<td>{{attivita.solleciti}}</td>
-						<td>{{attivita.priorita}}</td>
+					<tr ng-repeat="pratica in pratiche">
+						<td>{{pratica.numero}}</td>
+						<td>{{pratica.ramo}}</td>
+						<td>{{pratica.stato}}</td>
+						<td>{{pratica.area}}</td>
+						<td>{{pratica.subarea}}</td>
+						<td>{{pratica.apertura | date :'dd-MM-yyyy'}}</td>
+						<td>{{pratica.numeroPolizza}}</td>
+						<td>{{pratica.cliente}}</td>
+						<td>{{pratica.banca}}</td>
+						<td>{{pratica.prodotto}}</td>
+						<td>{{pratica.richiesta}}</td>
+						<td>{{pratica.solleciti}}</td>
+						<td>{{pratica.priorita}}</td>
+						<td>{{pratica.ufficio}}</td>
 						<td><button class="btn btn-success btn-small" type="button"
-								ng-click="selectAttivita(attivita)">SELEZIONA</button></td>
+								ng-click="selectPratica(pratica)">SELEZIONA</button></td>
 					</tr>
 				</table>
 			</div>
@@ -234,13 +246,16 @@
 		<div class="row-fluid">
 			<div class="span5">
 				<ul class="nav nav-tabs">
-					<li ng-class="{active: page.leftTab == 'attivita'}"><a
-						href="#" ng-click="page.leftTab = 'attivita'">Attività
-							{{attivitaSelected.numero}}</a></li>
+					<li ng-class="{active: page.leftTab == 'pratica'}"><a href="#"
+						ng-click="page.leftTab = 'pratica'">Pratica
+							{{praticaSelected.numero}}</a></li>
+					<li ng-class="{active: page.leftTab == 'datiAggiuntivi'}"><a
+						href="#" ng-click="page.leftTab = 'datiAggiuntivi'">Dati
+							aggiuntivi</a></li>
 					<li ng-class="{active: page.leftTab == 'history'}"><a href="#"
 						ng-click="page.leftTab = 'history'">History</a></li>
 				</ul>
-				<div class="well well-small" ng-show="page.leftTab == 'attivita'">
+				<div class="well well-small" ng-show="page.leftTab == 'pratica'">
 					<div class="accordion" id="accordion">
 						<div class="accordion-group" ng-repeat="tab in leftTabs">
 							<div class="accordion-heading">
@@ -260,12 +275,16 @@
 						<button class="btn btn-success" ng-click="console.log('saving')">SALVA</button>
 						<button class="btn btn-success" ng-click="console.log('saving')">SOSPENDI</button>
 						<button class="btn btn-success" ng-click="console.log('saving')">CHIUDI</button>
-						<button class="btn btn-success" ng-click="console.log('saving')">ASSEGNA</button>
+						<button class="btn btn-success" ng-click="console.log('saving')">PROCEDI</button>
 					</div>
 
 					<div>&nbsp:</div>
 					<div>&nbsp:</div>
 
+				</div>
+				<div class="well well-small"
+					ng-show="page.leftTab == 'datiAggiuntivi'">
+					<div ng-include="'cambio-veicolo-indirizzo'"></div>
 				</div>
 				<div class="well well-small" ng-show="page.leftTab == 'history'">
 					<table class="table table-striped">
