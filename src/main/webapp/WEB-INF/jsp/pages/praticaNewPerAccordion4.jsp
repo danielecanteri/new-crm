@@ -48,6 +48,14 @@
 					</select>
 				</div>
 			</div>
+			<div class="row-fluid">
+				<div class="span2">
+					<label>Note</label>
+				</div>
+				<div class="span10">
+					<textarea rows="3" ng-model="$parent.$parent.note"></textarea>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="well well-small" style="background-color: white"

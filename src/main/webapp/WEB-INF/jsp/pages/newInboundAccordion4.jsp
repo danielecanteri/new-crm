@@ -227,18 +227,29 @@
     	   template : '<spring:url value="/" />pages/richiesta-new-con-tipo-contatto'}];
 		
 		$scope.nuovoTask = function() {
-			$scope.leftTabs.splice(2, 1);
+			$scope.tipoContatto = 'attivita'; 
+			$scope.leftTabs.splice(2);
 			$scope.leftTabs.push({
 				id : 'nuovaAttivita',
-				title : 'Nuova attività',
+				title : 'Attività',
 				active : true,
 				template : '<spring:url value="/" />pages/attivita-new'
+			});
+			$scope.leftTabs.push({
+				id : 'infoRicontatto',
+				title : 'Info Ricontatto',
+				active : true,
+				template : '<spring:url value="/" />pages/ricontatto-new'
 			});
 
 		}
 		
 		$scope.nuovaPratica = function() {
-			$scope.leftTabs.splice(2, 1);
+			if (!$scope.isPolizzaSelezionata()) {
+				return;
+			}
+			$scope.tipoContatto = 'pratica'; 
+			$scope.leftTabs.splice(2);
 //			$scope.leftTabs.forEach(function(item) {
 //				item.active = false;
 //			});
@@ -248,20 +259,42 @@
 				active : true,
 				template : '<spring:url value="/" />pages/pratica-new-per-accordion4'
 			});
+			$scope.leftTabs.push({
+				id : 'infoRicontatto',
+				title : 'Info Ricontatto',
+				active : true,
+				template : '<spring:url value="/" />pages/ricontatto-new'
+			});
 		}
 		
 		$scope.sollecito = function() {
-			$scope.leftTabs.splice(2, 1);
+			$scope.tipoContatto = 'sollecito';
+			$scope.leftTabs.splice(2);
 			$scope.leftTabs.push({
 				id : 'sollectio',
 				title : 'Sollecito',
 				active : true,
 				template : '<spring:url value="/" />pages/sollecito-new'
 			});
+			$scope.leftTabs.push({
+				id : 'infoRicontatto',
+				title : 'Info Ricontatto',
+				active : true,
+				template : '<spring:url value="/" />pages/ricontatto-new'
+			});
 			
 		}
 		
 		$scope.tipoContatto = null;
+		
+		$scope.isTipoContatto = function(tipo) {
+			return $scope.tipoContatto != null && $scope.tipoContatto == tipo; 
+		}
+		
+		$scope.isPolizzaSelezionata = function() {
+			return $scope.attivita.polizza != null;
+		}
+		
 	}
 	
 	angular.module('myApp', []).directive('showErrors', function() {
