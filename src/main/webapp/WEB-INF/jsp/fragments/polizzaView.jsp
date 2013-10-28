@@ -1,8 +1,11 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <h2>Polizza {{tab.polizza.numero}}</h2>
 
 <div class="bs-docs-example">
 	<ul id="myTab" class="nav nav-pills">
-		<li class="active"><a href="#dettaglio_{{tab.polizza.id}}"
+		<li class="active"><a href="#riepilogo_{{tab.polizza.id}}"
+			data-toggle="tab">Riepilogo</a></li>
+		<li class=""><a href="#dettaglio_{{tab.polizza.id}}"
 			data-toggle="tab">Dettaglio</a></li>
 		<li class=""><a href="#figure_{{tab.polizza.id}}"
 			data-toggle="tab">Figure contrattuali</a></li>
@@ -18,7 +21,26 @@
 			data-toggle="tab">Documenti</a></li>
 	</ul>
 	<div id="myTabContent" class="tab-content">
-		<div class="tab-pane fade active in" id="dettaglio_{{tab.polizza.id}}">
+		<div class="tab-pane fade active in" id="riepilogo_{{tab.polizza.id}}">
+			<div>
+				<div class="row-fluid">
+					<div class="span5">Numero</div>
+					<div class="span7">{{tab.polizza.numero}}</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span5">Prodotto</div>
+					<div class="span7">{{tab.polizza.prodotto}}</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span5">Decorrenza</div>
+					<div class="span7">{{tab.polizza.decorrenza}}</div>
+				</div>
+			</div>
+			<h4>Contatti polizza</h4>
+			<div
+				ng-include="'<spring:url value="/" />pages/contatti-cliente-list'"></div>
+		</div>
+		<div class="tab-pane fade" id="dettaglio_{{tab.polizza.id}}">
 			<div>
 				<div class="row-fluid">
 					<div class="span5">Numero</div>

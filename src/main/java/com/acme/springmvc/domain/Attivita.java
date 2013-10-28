@@ -19,6 +19,7 @@ public class Attivita {
 	private String cliente;
 	private String praticaCollegata;
 	private String banca;
+	private String bancario;
 	private String prodotto;
 	private String richiesta;
 	private String risposta;
@@ -190,6 +191,14 @@ public class Attivita {
 
 	public List<Nota> getNote() {
 		return note;
+	}
+
+	public String getBancario() {
+		return bancario;
+	}
+
+	public void setBancario(String bancario) {
+		this.bancario = bancario;
 	}
 
 	public void addNota(String autore, Date date, String nota) {

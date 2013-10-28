@@ -26,8 +26,8 @@ public class PraticaRepository {
 			pratica.setStato("in corso");
 			pratica.setNumeroPolizza("" + 16353L + i);
 			pratica.setCliente(i % 2 == 0 ? "Mario Rossi" : "Luigi Verdi");
-			pratica.setBanca(i % 2 == 0 ? "001 - B.P. Emilia Romagna"
-					: "013 - B.P. Sondrio");
+			pratica.setBancario(i % 2 == 0 ? "Mario Rossi" : "Gianni Verdi");
+			pratica.setBanca(i % 2 == 0 ? "001" : "013");
 			pratica.setProdotto("146 - Private Selecta");
 			pratica.setRichiesta("Il cliente richiede...");
 			pratica.setSolleciti(i % 2 == 0 ? "!!" : "");

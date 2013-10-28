@@ -14,7 +14,7 @@
 		</tr>
 		<tr>
 			<td>13-10-2013</td>
-			<td>sollectio</td>
+			<td>sollecito</td>
 			<td>Il cliente richiede...</td>
 		</tr>
 

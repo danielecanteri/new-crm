@@ -136,7 +136,8 @@
 		$scope.selectPolizza = function(polizza) {
 			$scope.collapsed.infoCliente = true;
 			$scope.collapsed.infoPolizza = true;
-			$scope.cliente = {nome: 'Mario', cognome: 'Rossi', codiceFiscale: 'CVVBDSG746BVB543Z'}
+			if ($scope.cliente == null)
+				$scope.cliente = {nome: 'Mario', cognome: 'Rossi', codiceFiscale: 'CVVBDSG746BVB543Z'}
 			$scope.attivita.polizza = polizza;
 			$scope.viewPolizza(polizza);
 		}
@@ -379,6 +380,14 @@
 					<div class="pull-right">
 						<button class="btn btn-success" ng-click="console.log('saving')"
 							ng-show="tipoContatto != null">SALVA</button>
+						<button class="btn btn-success" ng-click="console.log('saving')"
+							ng-show="tipoContatto == 'pratica'">PROSEGUI</button>
+						<button class="btn btn-success" ng-click="console.log('saving')"
+							ng-show="tipoContatto == 'attivita'">ASSEGNA</button>
+						<button class="btn btn-success" ng-click="console.log('saving')"
+							ng-show="tipoContatto == 'attivita' || tipoContatto == 'sollecito'">CHIUDI</button>
+						<button class="btn btn-link" ng-click="console.log('saving')"
+							>ANNULLA</button>
 					</div>
 					
 					<div>&nbsp:</div>

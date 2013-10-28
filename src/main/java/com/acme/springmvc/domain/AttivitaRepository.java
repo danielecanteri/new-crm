@@ -26,8 +26,8 @@ public class AttivitaRepository {
 			attivita.setNumeroPolizza("" + 16353L + i);
 			attivita.setCliente(i % 2 == 0 ? "Mario Rossi" : "Luigi Verdi");
 			attivita.setPraticaCollegata(i % 2 == 0 ? "-" : "123321");
-			attivita.setBanca(i % 2 == 0 ? "001 - B.P. Emilia Romagna"
-					: "013 - B.P. Sondrio");
+			attivita.setBancario(i % 2 == 0 ? "Mario Rossi" : "Gianni Verdi");
+			attivita.setBanca(i % 2 == 0 ? "001" : "013");
 			attivita.setProdotto("146 - Private Selecta");
 			attivita.setRichiesta("Il cliente richiede...");
 			attivita.setRisposta("blah blah blah");

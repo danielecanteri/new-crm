@@ -12,11 +12,15 @@ public class Bancario {
 	private String nome;
 	@NotEmpty
 	private String cognome;
+	private String codiceFiscale;
 	@NotEmpty
 	@Length(min = 5)
 	private String banca;
 	@NotEmpty
 	private String filiale;
+	private String abi;
+	private String cab;
+	private String rete;
 	private Date created;
 	private Date updated;
 	private Long test;
@@ -83,6 +87,38 @@ public class Bancario {
 
 	public void setUpdated(Date updated) {
 		this.updated = updated;
+	}
+
+	public String getAbi() {
+		return abi;
+	}
+
+	public void setAbi(String abi) {
+		this.abi = abi;
+	}
+
+	public String getCab() {
+		return cab;
+	}
+
+	public void setCab(String cab) {
+		this.cab = cab;
+	}
+
+	public String getRete() {
+		return rete;
+	}
+
+	public void setRete(String rete) {
+		this.rete = rete;
+	}
+
+	public String getCodiceFiscale() {
+		return codiceFiscale;
+	}
+
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
 	}
 
 }

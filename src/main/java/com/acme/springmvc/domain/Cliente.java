@@ -10,6 +10,8 @@ public class Cliente {
 	private String cognome;
 	private String codiceFiscale;
 	private Date dataNascita;
+	private Recapito residenza;
+	private Recapito domicilio;
 	private List<Polizza> polizze;
 
 	public Long getId() {
@@ -58,6 +60,22 @@ public class Cliente {
 
 	public void setPolizze(List<Polizza> polizze) {
 		this.polizze = polizze;
+	}
+
+	public Recapito getResidenza() {
+		return residenza;
+	}
+
+	public void setResidenza(Recapito residenza) {
+		this.residenza = residenza;
+	}
+
+	public Recapito getDomicilio() {
+		return domicilio;
+	}
+
+	public void setDomicilio(Recapito domicilio) {
+		this.domicilio = domicilio;
 	}
 
 }

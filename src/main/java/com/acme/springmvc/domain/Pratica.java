@@ -16,6 +16,7 @@ public class Pratica {
 	private String numeroPolizza;
 	private String cliente;
 	private String banca;
+	private String bancario;
 	private String prodotto;
 	private String richiesta;
 	private String solleciti;
@@ -181,4 +182,13 @@ public class Pratica {
 	public void setCreataDa(String creataDa) {
 		this.creataDa = creataDa;
 	}
+
+	public String getBancario() {
+		return bancario;
+	}
+
+	public void setBancario(String bancario) {
+		this.bancario = bancario;
+	}
+
 }

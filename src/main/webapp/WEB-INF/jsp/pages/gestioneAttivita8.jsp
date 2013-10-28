@@ -199,6 +199,7 @@
 							<th>N. polizza</th>
 							<th>Cliente</th>
 							<th>Pratica collegata</th>
+							<th>Bancario</th>
 							<th>Banca</th>
 							<th>Prodotto</th>
 							<th>Richiesta</th>
@@ -216,6 +217,7 @@
 						<td>{{attivita.numeroPolizza}}</td>
 						<td>{{attivita.cliente}}</td>
 						<td>{{attivita.praticaCollegata}}</td>
+						<td>{{attivita.bancario}}</td>
 						<td>{{attivita.banca}}</td>
 						<td>{{attivita.prodotto}}</td>
 						<td>{{attivita.richiesta}}</td>

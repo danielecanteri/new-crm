@@ -1,17 +1,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <div ng-controller="NuovaPraticaController">
 	<div class="well well-small" style="background-color: white">
-		<div>
+		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span3">Ramo</div>
-				<div class="span3">
+				<div class="span2">Ramo</div>
+				<div class="span4">
 					<select style="width: 100%" ng-model="tipo">
 						<option>Danni</option>
 						<option>Vita</option>
 					</select>
 				</div>
-				<div class="span3">Priorità</div>
-				<div class="span3">
+				<div class="span2">Priorità</div>
+				<div class="span4">
 					<select style="width: 100%">
 						<option>Alta</option>
 						<option selected="selected">Media</option>
@@ -20,8 +20,8 @@
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span3">Area</div>
-				<div class="span3">
+				<div class="span2">Area</div>
+				<div class="span4">
 					<select style="width: 100%" ng-model="areapratica">
 						<option></option>
 						<option>generica</option>
@@ -29,8 +29,8 @@
 						<option>Area 3</option>
 					</select>
 				</div>
-				<div class="span3">Sub-Area</div>
-				<div class="span3">
+				<div class="span2">Sub-Area</div>
+				<div class="span4">
 					<select style="width: 100%" ng-model="subareapratica"
 						ng-change="leftTabs[0].active = false; leftTabs[1].active = false">
 						<option></option>
@@ -53,7 +53,7 @@
 					<label>Note</label>
 				</div>
 				<div class="span10">
-					<textarea rows="3" ng-model="$parent.$parent.note"></textarea>
+					<textarea style="width: 100%" rows="3" ng-model="$parent.$parent.note"></textarea>
 				</div>
 			</div>
 		</div>

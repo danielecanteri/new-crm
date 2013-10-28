@@ -1,5 +1,6 @@
 package com.acme.springmvc.domain;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,15 +49,28 @@ public class PolizzaRepository {
 		return result;
 	}
 
-	public List<Polizza> search(String numeroPolizza, String targa) {
+	public List<Polizza> search(String numeroPolizza, String targa, int num) {
 		List<Polizza> polizze = new ArrayList<Polizza>();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < num; i++) {
 			Polizza polizza = new Polizza();
 			polizza.setId(new Long(i));
 			polizza.setDecorrenza(DateTime.now().minusMonths(i).toDate());
-			polizza.setNumero(i + "" + i + "" + i);
-			polizza.setProdotto("Prodotto " + i);
+			polizza.setScadenza(DateTime.now().plusYears(i).toDate());
+			polizza.setNumero("1234" + i + "" + i + "" + i);
+			polizza.setProposta("0654" + i + "" + i + "" + i);
+			polizza.setTipo(i % 3 == 0 ? Tipo.VITA : i % 3 == 1 ? Tipo.AUTO
+					: Tipo.RE);
+			polizza.setSocieta(i % 3 == 0 ? "341" : "417");
+			polizza.setStato(i % 3 == 0 ? "Sospesa" : "Viva");
+			polizza.setProdotto(i % 3 == 0 ? "232 ARCA VITA ENERGY 50"
+					: i % 3 == 1 ? "787 TUTTO TONDO" : "587 PROTEZIONE 2");
+			polizza.setTarga(i % 3 == 1 ? "CK123KL" : null);
+			polizza.setBanca(i % 2 == 0 ? "BP Emilia Romagna" : "BP Sondrio");
+			polizza.setFiliale(i % 2 == 0 ? "00120 Agenzia 1 Verona"
+					: "01254 Agenzia 4 Bolzano");
+			polizza.setPremioAnnualizzato(new BigDecimal("123.56"));
 			polizza.setElencoAttivita(elencoAttivita());
+			polizza.setRuolo(i % 3 == 1 ? "A" : "C");
 			polizza.setPratiche(pratiche());
 			polizze.add(polizza);
 		}

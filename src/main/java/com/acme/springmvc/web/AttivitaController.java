@@ -20,9 +20,11 @@ import com.acme.springmvc.domain.Attivita;
 import com.acme.springmvc.domain.AttivitaRepository;
 import com.acme.springmvc.domain.Bancario;
 import com.acme.springmvc.domain.BancarioRepository;
+import com.acme.springmvc.domain.Cliente;
 import com.acme.springmvc.domain.ClienteRepository;
 import com.acme.springmvc.domain.ErrorMessage;
 import com.acme.springmvc.domain.ErrorResult;
+import com.acme.springmvc.domain.Polizza;
 import com.acme.springmvc.domain.PolizzaRepository;
 import com.google.gson.Gson;
 
@@ -90,10 +92,8 @@ public class AttivitaController {
 
 	@RequestMapping(value = "/attivita/searchPolizza")
 	@ResponseBody
-	public String searchBancario(String numeroPolizza, String targa) {
-		sleep(5);
-		return new Gson()
-				.toJson(polizzaRepository.search(numeroPolizza, targa));
+	public List<Polizza> searchPolizza(String numeroPolizza, String targa) {
+		return polizzaRepository.search(numeroPolizza, targa, 10);
 	}
 
 	@RequestMapping(value = "/attivita/bancario-list")
@@ -108,9 +108,9 @@ public class AttivitaController {
 
 	@RequestMapping(value = "/attivita/searchCliente")
 	@ResponseBody
-	public String searchCliente(String nomeCognome) {
+	public List<Cliente> searchCliente(String nomeCognome) {
 		sleep(4);
-		return new Gson().toJson(clienteRepository.search(nomeCognome));
+		return clienteRepository.search(nomeCognome);
 	}
 
 	@RequestMapping(value = "/attivita/cliente-list")

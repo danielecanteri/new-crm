@@ -209,6 +209,7 @@
 							<th>Apertura</th>
 							<th>N. polizza</th>
 							<th>Cliente</th>
+							<th>Bancario</th>
 							<th>Banca</th>
 							<th>Prodotto</th>
 							<th>Richiesta</th>
@@ -227,6 +228,7 @@
 						<td>{{pratica.apertura | date :'dd-MM-yyyy'}}</td>
 						<td>{{pratica.numeroPolizza}}</td>
 						<td>{{pratica.cliente}}</td>
+						<td>{{pratica.bancario}}</td>
 						<td>{{pratica.banca}}</td>
 						<td>{{pratica.prodotto}}</td>
 						<td>{{pratica.richiesta}}</td>
