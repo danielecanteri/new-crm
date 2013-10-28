@@ -241,7 +241,7 @@
 			$scope.leftTabs.splice(2);
 			$scope.leftTabs.push({
 				id : 'nuovaAttivita',
-				title : 'Attivit�',
+				title : 'Attività',
 				active : true,
 				template : '<spring:url value="/" />pages/attivita-new'
 			});
@@ -409,6 +409,23 @@
 			</div>
 		</div>
 	</div>
+
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Conferma operazione</h3>
+  </div>
+  <div class="modal-body">
+    <p>Confermi l'operazione?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success">Conferma</button>
+    <button class="btn btn-link" data-dismiss="modal" aria-hidden="true">Annulla</button>
+  </div>
+</div>
 	<jsp:include page="../fragments/bodyFooter.jsp" />
 </body>
 

@@ -38,14 +38,14 @@
 				<div class="btn-group tipoContatto"
 					style="margin: auto; display: block; width: 200px">
 					<button class="btn"
-						ng-class="{active: isTipoContatto('sollecito'), __disabled: $parent.$parent.tipoContatto != null && $parent.$parent.tipoContatto != 'sollecito'}"
-						ng-click="sollecito(polizza)">Sollecito</button>
-					<button class="btn"
 						ng-class="{active: isTipoContatto('attivita'), __disabled: $parent.$parent.tipoContatto != null && $parent.$parent.tipoContatto != 'attivita'}"
 						ng-click="nuovoTask(polizza)">Attività</button>
 					<button class="btn"
 						ng-class="{active: isTipoContatto('pratica'), disabled: !isPolizzaSelezionata()}"
 						ng-click="nuovaPratica(polizza)">Pratica</button>
+					<button class="btn"
+						ng-class="{active: isTipoContatto('sollecito'), __disabled: $parent.$parent.tipoContatto != null && $parent.$parent.tipoContatto != 'sollecito'}"
+						ng-click="sollecito(polizza)">Ricontatto</button>
 				</div>
 			</div>
 		</div>
